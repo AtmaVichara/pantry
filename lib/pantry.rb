@@ -10,4 +10,7 @@ class Pantry
     @stock.merge!({food => quantity})
   end
 
+  def stock_check(food)
+    stock[food] if stock.key?(food)
+  end
 end

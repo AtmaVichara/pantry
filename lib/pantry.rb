@@ -42,6 +42,14 @@ class Pantry
     cookbook << recipe
   end
 
-  
+  def grouped_list
+    cookbook.reduce(Hash.new(0)) do |recipe|
+      result.merge!(recipe.)
+  end
+
+  def what_can_i_make
+    grouped_list
+    binding.pry
+  end
 
 end

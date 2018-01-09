@@ -17,6 +17,7 @@ class PantryTest < Minitest::Test
 
     assert_equal Hash.new, pantry.stock
     assert_instance_of Hash, pantry.stock
+    assert_equal Hash.new, pantry.shopping_list
   end
 
   def test_stock_check_returns_0_if_key_is_nil
@@ -30,7 +31,7 @@ class PantryTest < Minitest::Test
     pantry.restock("Cheese", 20)
 
     assert 20, pantry.stock_check("Cheese")
-    
+
     pantry.restock("Cheese", 10)
 
     assert_equal 30, pantry.stock_check("Cheese")

@@ -21,8 +21,12 @@ class Pantry
 
   def add_to_shopping_list(recipe)
     recipe.ingredients.each do |ingredient, quantity|
-      @shopping_list.merge!({ingredient => quantity})
-    end 
+      if @shopping_list.key?(ingredient)
+        @shopping_list[ingredient] += quantity
+      else
+        @shopping_list.merge!({ingredient => quantity})
+      end 
+    end
   end
 
 end

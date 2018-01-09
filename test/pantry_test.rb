@@ -19,19 +19,19 @@ class PantryTest < Minitest::Test
     assert_instance_of Hash, pantry.stock
   end
 
-  def test_it_adds_to_stock
+  def test_stock_check_returns_0_if_key_is_nil
     pantry = Pantry.new
-    pantry.add_stock("Cheese", 20)
-    stock = {"Cheese" => 20}
+    pantry.restock("Cheese", 20)
 
-    assert_equal stock, pantry.stock
+    assert_equal 0, pantry.stock_check("Cheese")
   end
 
-  def test_stock_check_checks_for_contents
-    pantry = Pantry.new
-    pantry.add_stock("Cheese", 20)
-
-    assert_equal 20, pantry.stock_check("Cheese")
-  end
+  # def test_it_restocks
+  #   pantry = Pantry.new
+  #   pantry.add_stock("Cheese", 10)
+  #   pantry.restock("Cheese", 20)
+  #
+  #
+  # end
 
 end

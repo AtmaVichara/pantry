@@ -95,8 +95,10 @@ class PantryTest < Minitest::Test
     pantry.add_to_cookbook(r2)
     pantry.add_to_cookbook(r3)
 
-    assert pantry.include?(r1)
-    assert pantry.include?(r2)
-    assert pantry.include?(r3)
+    assert pantry.cookbook.include?(r1)
+    assert pantry.cookbook.include?(r2)
+    assert pantry.cookbook.include?(r3)
   end
+
+
 end

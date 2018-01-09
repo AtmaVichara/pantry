@@ -33,9 +33,9 @@ class Pantry
   def print_shopping_list
     list = @shopping_list.reduce("") do |string, ingredients|
       string += "* #{ingredients.first}: #{ingredients.last}\n"
-    end
+    end.chomp
     puts list
-    list.chomp
+    list
   end
 
   def add_to_cookbook(recipe)
@@ -63,6 +63,8 @@ class Pantry
     end.delete_if(&:nil?)
   end
 
-  
+  def how_many_can_i_make
+    binding.pry
+  end
 
 end

@@ -49,8 +49,18 @@ class Pantry
   end
 
   def what_can_i_make
-    grouped_list
-    binding.pry
+    cookbook.map do |recipe|
+      counter = 0
+      ingredients = recipe.ingredients.keys
+      ingredients.each do |ing|
+        if stock_check(ing) > recipe.ingredients[ing]
+          counter += 1
+        end
+      end
+      if counter == recipe.ingredients.count
+        recipe.name
+      end
+    end.delete_if(&:nil?)
   end
 
 end

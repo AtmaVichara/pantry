@@ -21,17 +21,19 @@ class PantryTest < Minitest::Test
 
   def test_stock_check_returns_0_if_key_is_nil
     pantry = Pantry.new
-    pantry.restock("Cheese", 20)
 
     assert_equal 0, pantry.stock_check("Cheese")
   end
 
-  # def test_it_restocks
-  #   pantry = Pantry.new
-  #   pantry.add_stock("Cheese", 10)
-  #   pantry.restock("Cheese", 20)
-  #
-  #
-  # end
+  def test_it_restocks
+    pantry = Pantry.new
+    pantry.restock("Cheese", 20)
+
+    assert 20, pantry.stock_check("Cheese")
+    
+    pantry.restock("Cheese", 10)
+
+    assert_equal 30, pantry.stock_check("Cheese")
+  end
 
 end

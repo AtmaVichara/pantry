@@ -7,12 +7,15 @@ class Pantry
   end
 
   def restock(food, quantity)
-    @stock.merge!({food => quantity}) if stock.key?(food)
+    if stock.key?(food)
+      @stock[food] += quantity
+    else
+      @stock.merge!({food => quantity})
+    end
   end
 
   def stock_check(food)
     stock.key?(food) ? stock[food] : 0
   end
-
 
 end

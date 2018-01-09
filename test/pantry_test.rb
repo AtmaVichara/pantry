@@ -126,4 +126,26 @@ class PantryTest < Minitest::Test
   end
 
 
+  def test_grouped_list_groups_data
+    pantry = Pantry.new
+    r1 = Recipe.new("Cheese Pizza")
+    r1.add_ingredient("Cheese", 20)
+    r1.add_ingredient("Flour", 20)
+    r2 = Recipe.new("Pickles")
+    r2.add_ingredient("Brine", 10)
+    r2.add_ingredient("Cucumbers", 30)
+    r3 = Recipe.new("Peanuts")
+    r3.add_ingredient("Raw nuts", 10)
+    r3.add_ingredient("Salt", 10)
+    pantry.add_to_cookbook(r1)
+    pantry.add_to_cookbook(r2)
+    pantry.add_to_cookbook(r3)
+
+    grouped_list = {"Cheese Pizza"=>{"Cheese"=>20, "Flour"=>20},
+      "Pickles"=>{"Brine"=>10, "Cucumbers"=>30},
+      "Peanuts"=>{"Raw nuts"=>10, "Salt"=>10}
+    }
+    assert_equal grouped_list, pantry.grouped_list
+  end
+
 end

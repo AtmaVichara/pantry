@@ -6,8 +6,8 @@ class Pantry
     @stock = {}
   end
 
-  def add_stock(stock, quantity)
-    stock.merge!(stock => quantity)
+  def add_stock(food, quantity)
+    @stock.merge!({food => quantity})
   end
 
 end

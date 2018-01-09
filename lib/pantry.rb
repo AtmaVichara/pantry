@@ -25,8 +25,16 @@ class Pantry
         @shopping_list[ingredient] += quantity
       else
         @shopping_list.merge!({ingredient => quantity})
-      end 
+      end
     end
+  end
+
+  def print_shopping_list
+    list = @shopping_list.reduce("") do |string, ingredients|
+      string += "* #{ingredients.first}: #{ingredients.last}\n"
+    end
+    puts list
+    list.chomp
   end
 
 end

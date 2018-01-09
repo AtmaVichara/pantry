@@ -74,8 +74,8 @@ class PantryTest < Minitest::Test
     l.add_ingredient("Cheese", 5)
     pantry.add_to_shopping_list(l)
 
+    list = "* Cheese: 25\n* Flour: 20\n* Spaghetti Noodles: 10\n* Marinara Sauce: 10"
 
-    assert_equal "* Cheese: 25\n* Flour: 20\n* Spaghetti Noodles: 10\n* Marinara Sauce: 10",
-                  pantry.print_shopping_list
+    assert_equal list, pantry.print_shopping_list
   end
 end

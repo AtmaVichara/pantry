@@ -27,10 +27,11 @@ class PantryTest < Minitest::Test
     assert_equal stock, pantry.stock
   end
 
-  # def test_stock_check_checks_for_contents
-  #   pantry = Pantry.new
-  #
-  #
-  # end
+  def test_stock_check_checks_for_contents
+    pantry = Pantry.new
+    pantry.add_stock("Cheese", 20)
+
+    assert_equal 20, pantry.stock_check("Cheese")
+  end
 
 end

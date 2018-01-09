@@ -19,4 +19,10 @@ class Pantry
     stock.key?(food) ? stock[food] : 0
   end
 
+  def add_to_shopping_list(recipe)
+    recipe.ingredients.each do |ingredient, quantity|
+      @shopping_list.merge!({ingredient => quantity})
+    end 
+  end
+
 end

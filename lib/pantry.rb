@@ -1,10 +1,11 @@
 class Pantry
 
-  attr_reader :stock, :shopping_list
+  attr_reader :stock, :shopping_list, :cookbook
 
   def initialize
     @stock = {}
     @shopping_list = {}
+    @cookbook = []
   end
 
   def restock(food, quantity)
@@ -36,5 +37,7 @@ class Pantry
     puts list
     list.chomp
   end
+
+
 
 end
